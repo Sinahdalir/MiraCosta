@@ -1,0 +1,5 @@
+I get a solution less than 20 after 15 tries.
+Yes it changes depending on the answer. With 1 & 2 I get less than 20 in about 15 tries
+but answer 3 it takes a bout 30 tries or more.
+This method doesn't have any benefits. The main bad thing is that some guesses are repeated and that wastes time.
+ Also another bad thing about it is that it's not efficient.
