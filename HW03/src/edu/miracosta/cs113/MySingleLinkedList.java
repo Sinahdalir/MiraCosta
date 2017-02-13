@@ -75,12 +75,14 @@ public class MySingleLinkedList<E>
 	}
 	private void addFirst(E item) 
 	{   
-		head = new Node<E>(item, head);   size++;
+		head = new Node<E>(item, head);   
+		size++;
 	}
 	
 	private void addAfter(Node<E> node, E item) 
 	{
-		node.next = new Node<E>(item, node.next);   size++;
+		node.next = new Node<E>(item, node.next);  
+		size++;
 	}
 	
 	private E removeAfter(Node<E> node) 
@@ -101,7 +103,7 @@ public class MySingleLinkedList<E>
 	public Node<E> removeStudent(String name)
 	{
 		Node<E> node = head;
-		Node<E> beforeNode = head;
+		Node<E> beforeNode = null;
 		boolean found = false;
 		while(!found && node != null) 
 		{   
