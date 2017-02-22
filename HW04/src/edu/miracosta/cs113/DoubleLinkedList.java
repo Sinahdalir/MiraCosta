@@ -456,7 +456,7 @@ public class DoubleLinkedList<E> implements List<E> {
 		 **/
 		public int nextIndex()
 		{
-			return index++;
+			return index + 1;
 		}
 		
 		/** Get the index of the previous item
@@ -465,7 +465,7 @@ public class DoubleLinkedList<E> implements List<E> {
 		 **/
 		public int previousIndex()
 		{
-			return index--;
+			return index - 1;
 		}
 		
 		/** remove the item last returned

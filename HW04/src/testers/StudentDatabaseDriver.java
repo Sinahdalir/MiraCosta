@@ -83,7 +83,7 @@ public class StudentDatabaseDriver
 	 * driver for StudentDatabaseDriver
 	 * 
 	 * @param args
-	 *            command line arguments (unnused)
+	 *            command line arguments (unused)
 	 */
 	public static void main(String[] args) 
 	{
