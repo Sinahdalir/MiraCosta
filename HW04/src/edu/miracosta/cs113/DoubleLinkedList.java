@@ -15,7 +15,16 @@ public class DoubleLinkedList<E> implements List<E> {
 	 private Node <E> tail = null;
 	 private int size = 0;
 	 
-	 
+ 	/**
+	 * Default constructor, setting all int variables to zero or Nodes to null
+	 * 
+	 */
+	public DoubleLinkedList()
+	{
+		head = null;
+		tail = null;
+		size = 0;
+	}
 	/** Add an item at the specified index.     
 	 * @param index  The index at which the object is to be inserted     
 	 * @param obj   The object to be inserted     
@@ -107,7 +116,7 @@ public class DoubleLinkedList<E> implements List<E> {
 	
 	/** Removes the item if found in list
 	 * 
-	 * @param Object the object to remove
+	 * @param E the object to remove
 	 *@return boolean if found and removed returns true, if not false
 	 **/ 
 	public boolean remove(Object obj)
@@ -139,7 +148,7 @@ public class DoubleLinkedList<E> implements List<E> {
 		else
 		{
 			
-			DoubleListIterator itr = listIterator(index - 1);
+			DoubleListIterator itr = listIterator(index);
 			E removedItem = itr.next();
 			itr.remove();
 			return removedItem;
@@ -223,14 +232,13 @@ public class DoubleLinkedList<E> implements List<E> {
 		{
 			if(itr.next().equals(obj))
 			{
-				itr.remove();
 				found =  true;
 			}
 		}
 		
 		if(found == true)
 		{
-			return itr.index;
+			return itr.index - 1;
 		}
 		else
 		{
@@ -280,7 +288,6 @@ public class DoubleLinkedList<E> implements List<E> {
 	{
 		return 0;
 	}
-	
 	
 	public boolean removeAll(Collection<?> c)
 	{
@@ -472,8 +479,27 @@ public class DoubleLinkedList<E> implements List<E> {
 			{
 				throw new IllegalStateException();
 			}
-			lastItemReturned.prev.next = lastItemReturned.next;
-			lastItemReturned.next.prev = lastItemReturned.prev;
+			if(nextItem == null && lastItemReturned.prev == null)
+			{
+				head = null;
+				tail = null;
+			}
+			else if(nextItem == null)
+			{
+				lastItemReturned.prev.next = lastItemReturned.next;
+				tail = lastItemReturned.prev;
+				
+			}
+			else if(lastItemReturned.prev == null)
+			{
+				lastItemReturned.next.prev = lastItemReturned.prev;
+				head = lastItemReturned.next;
+			}
+			else
+			{
+				lastItemReturned.prev.next = lastItemReturned.next;
+				lastItemReturned.next.prev = lastItemReturned.prev;
+			}
 			size--;
 			index--;
 			lastItemReturned = null;
