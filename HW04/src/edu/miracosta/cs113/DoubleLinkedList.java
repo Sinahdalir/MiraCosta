@@ -197,12 +197,17 @@ public class DoubleLinkedList<E> implements List<E> {
 	 **/ 
 	public void clear()
 	{
-		DoubleListIterator itr = listIterator();
+		/**DoubleListIterator itr = listIterator();
 		for(int i = 0 ; i < size; i++)
 		{
 			itr.next();
 			itr.remove();
 		}
+		this is one way to do it but a better way is 
+		**/
+		head = null;
+		tail = null;
+		size =0;
 	}
 	/** Checks to see if the list is empty
 	 * 

@@ -58,5 +58,40 @@ public class DoubleLinkedListTest {
 		Student newStudent = new Student(4, "CS", "4", "Student4");
 		assertEquals(list.indexOf(newStudent), 3);
 	}
+	
+	@Test
+	public void testAdd() {
+		addItems();
+		Student newStudent = new Student(4, "CS", "5", "Student5");
+		list.add(newStudent);
+		assertEquals(list.get(4), newStudent);
+	}
+	
+	@Test
+	public void testRemove() {
+		addItems();
+		Student newStudent = new Student(4, "CS", "5", "Student5");
+		list.add(newStudent);
+		Student oldStudent = new Student(4, "CS", "4", "Student4");
+		list.remove(oldStudent);
+		assertEquals(list.get(3), newStudent);
+	}
+	
+	@Test
+	public void testClear() {
+		addItems();
+		list.clear();
+		assertEquals(list.size(), 0);
+	}
+	
+	@Test
+	public void testSet() {
+		addItems();
+		Student newStudent = new Student(4, "CS", "5", "Student5");
+		list.set(3 , newStudent);
+		assertEquals(list.get(3), newStudent);
+	}
+	
+	
 
 }
