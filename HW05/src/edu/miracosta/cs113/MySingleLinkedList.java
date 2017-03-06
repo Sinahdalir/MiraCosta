@@ -30,7 +30,22 @@ public class MySingleLinkedList<E>
 		Node<E> node = getNode(index);   
 		return node.data; 
 	}
-	
+	/**
+	 * Returns if the list is empty or not
+	 * 
+	 * @return true if empty, false if not
+	 */
+	public boolean isEmpty()
+	{
+		if(head == null)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	/**
 	 * set() sets the data in the given index Node
 	 * 
@@ -86,15 +101,6 @@ public class MySingleLinkedList<E>
 		return true;
 	}
 	/**
-	 * adds to the beginning of the list using addFirst()
-	 * 
-	 * @param item
-	 */
-	public void addToBeginning(E item)
-	{
-		addFirst(item);
-	}
-	/**
 	 * returns size variable
 	 * 
 	 * @return int variables of size
@@ -104,6 +110,18 @@ public class MySingleLinkedList<E>
 		return size;
 	}
 	
+	/**
+	 * Removes first node
+	 * 
+	 * @return the data removed
+	 */
+	public E removeFirst()
+	{
+		E oldData = head.data;
+		head = head.next;
+		size--;
+		return oldData;
+	}
 	/**
 	 * addFirst() adds to the beginning of the list
 	 * 
@@ -121,80 +139,13 @@ public class MySingleLinkedList<E>
 	 * @param node
 	 * @param item
 	 */
+	
 	private void addAfter(Node<E> node, E item) 
 	{
 		node.next = new Node<E>(item, node.next);  
 		size++;
 	}
-	/**
-	 * removeAfter() removes the node after the given Node
-	 * 
-	 * @param node
-	 * @return data from node
-	 */
-	private E removeAfter(Node<E> node) 
-	{
-		Node<E> temp = node.next;
-		if (temp != null) 
-		{
-			node.next = temp.next;
-			size--;
-			return temp.data;
-		} 
-		else 
-		{     
-			return null;
-		} 
-	}
-	/**
-	 * removeStudent() this method is specific for the MySingleLinkedList<String>
-	 * 	the list has to have String and removes the Node with the name given in paramateres
-	 * 
-	 * @
-	 * 
-	 * @param name
-	 * @return
-	 */
-	public Node<E> removeStudent(String name)
-	{
-		Node<E> node = head;
-		Node<E> beforeNode = null;
-		boolean found = false;
-		while(!found && node != null) 
-		{   
-			Student student = (Student) node.data;
-			
-			if(student.getName().equals(name))
-			{
-				found = true;
-			}
-			else
-			{
-				beforeNode = node;
-			}
-			node = node.next;
-		}
-		removeAfter(beforeNode);
-		return node; 
-	}
-	/**
-	 * Removes first Node
-	 * @return the data deleted
-	 */
-	public E removeFirst() 
-	{  
-		if (head == null) 
-		{
-			return null;  
-		} 
-		else
-		{   
-			Node<E> temp = head;
-			head = head.next;
-			size--;   
-			return temp.data;  
-		}
-	}
+
 	/**
 	 * @return String with all variables
 	 */
@@ -267,3 +218,4 @@ public class MySingleLinkedList<E>
 	}
 
 }
+
