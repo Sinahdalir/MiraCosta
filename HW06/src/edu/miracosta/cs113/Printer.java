@@ -1,12 +1,10 @@
 package edu.miracosta.cs113;
-import java.util.Queue;
-import java.util.LinkedList;
 
 
 public class Printer 
 {
 	private String name;
-	private Queue<PrintJob> jobs;
+	private ArrayQueue<PrintJob> jobs;
 	private int lower;
 	private int upper;
 	private static int  currentTime;
@@ -37,7 +35,7 @@ public class Printer
 	 *            int representing upper bound           
 	 * 
 	 */
-	public Printer(String name, Queue<PrintJob> jobs, int lower, int upper) 
+	public Printer(String name, ArrayQueue<PrintJob> jobs, int lower, int upper) 
 	{
 		this.name = name;
 		this.jobs = jobs;
@@ -60,7 +58,7 @@ public class Printer
 	public Printer(String name, int lower, int upper) 
 	{
 		this.name = name;
-		this.jobs = new LinkedList<PrintJob>();
+		this.jobs = new ArrayQueue<PrintJob>(100);
 		this.lower = lower;
 		this.upper = upper;
 		currentTime = 0;
@@ -92,7 +90,7 @@ public class Printer
 	 * 
 	 * @return jobs Queue reference
 	 */
-	public Queue<PrintJob> getJobs() 
+	public ArrayQueue<PrintJob> getJobs() 
 	{
 		return jobs;
 	}
@@ -102,7 +100,7 @@ public class Printer
 	 * @param jobs
 	 *            Queue<PrintJob> value representing jobs
 	 */
-	public void setJobs(Queue<PrintJob> jobs) 
+	public void setJobs(ArrayQueue<PrintJob> jobs) 
 	{
 		this.jobs = jobs;
 	}
