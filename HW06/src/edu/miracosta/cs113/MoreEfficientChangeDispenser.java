@@ -1,5 +1,5 @@
 /**
- * MoreEfficientChangeDispenser.java : this program prints printJobs with three different options with better efficientcy
+ * MoreEfficientChangeDispenser.java : This program gives you possiblity of changes with better efficiency
  * 
  * 
  * @author Sina Dalir

@@ -1,5 +1,5 @@
 /**
- * ChangeDispenser.java : this program prints printJobs with three different options
+ * ChangeDispenser.java : This program gives you possiblity of changes with no a good efficiency
  * 
  * @author Sina Dalir
  * @version 1.0
