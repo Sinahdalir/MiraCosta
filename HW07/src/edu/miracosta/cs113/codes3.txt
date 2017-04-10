@@ -1,0 +1,54 @@
+empty ! e * 	 
+		i **	
+			s ***	
+				h ***
+					null null
+					null null
+				v ***-
+					null null
+					null null
+			u **-	
+				f **-*
+					null null
+					null null
+				null
+		a *-	
+			r *-*	
+				l *-**	null null	
+					null null
+				null null
+			w *--	
+				p *--*
+					null null
+					null null
+				j *---
+					null null
+					null null
+	 t -
+		n -* 
+			d -**
+				b -***
+					null null
+					null null
+				x -**-
+					null null
+			 		null null
+			k -*-	
+				c *-*
+					null null
+					null null
+				y -*--
+					null null
+					null null
+		m --
+			g --*
+				z --**
+					null null
+					null null
+				q --*-
+					null null
+					null null
+			o ---
+				null null
+
+			
