@@ -27,7 +27,7 @@
  * ASSIGN command = Integer.parseInt(temp)
  * WHILE
  * 		IF
- * 			PRINT decodeLetter(morseCodes, "*-") for the whole alphabet
+ * 			PRINT format  decodeLetter(morseCodes, String code) for the whole alphabet
  * 		END IF
  * 		IF
  * 			PRINT "Please enter file name : "
@@ -96,32 +96,32 @@ public class MorseCodeDecoding {
 		{
 			if(command == 1)
 			{
-				System.out.printf("%s %s %4s %s" , "| ", decodeLetter(morseCodes, "*-") + " : ", " *-  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "-***")  + " : ", " -***  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "-*-*")  + " : ", " -*-*  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "-**")  + " : ", " -**  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "*")  + " : ", " *  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "**-*")  + " : ", " **-*  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "--*")  + " : ", " --*  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "****")  + " : ", " ****  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "**")  + " : ", " **  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "*---")  + " : ", " *---  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "-*-")  + " : ", " -*-  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "*-**")  + " : ", " *-**  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "--")  + " : ", " --  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "-*")  + " : ", " -*  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "---")  + " : ", " ---  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "*--*")  + " : ", " *--*  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "--*-")  + " : ", " --*-  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "*-*")  + " : ", " *-*  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "***")  + " : ", " ***  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "-")  + " : ", " -  ", " |");
-				System.out.printf("%s %s1 %4s %s" , "\n| ", decodeLetter(morseCodes, "**-")  + " : ", " **-  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "***-")  + " : ", " ***-  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "*--")  + " : ", " *--  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "-**-")  + " : ", " -**-  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "-*--")  + " : ", " -*--  ", " |");
-				System.out.printf("%s %s %4s %s" , "\n| ", decodeLetter(morseCodes, "--**")  + " : ", " --**  ", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "*-") + " : ", " *-", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "-***")  + " : ", " -***", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "-*-*")  + " : ", " -*-*", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "-**")  + " : ", " -**", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "*")  + " : ", " *", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "**-*")  + " : ", " **-*", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "--*")  + " : ", " --*", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "****")  + " : ", " ****", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "**")  + " : ", " **", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "*---")  + " : ", " *---", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "-*-")  + " : ", " -*-", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "*-**")  + " : ", " *-**", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "--")  + " : ", " --", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "-*")  + " : ", " -*", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "---")  + " : ", " ---", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "*--*")  + " : ", " *--*", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "--*-")  + " : ", " --*-", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "*-*")  + " : ", " *-*", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "***")  + " : ", " ***", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "-")  + " : ", " -", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "**-")  + " : ", " **-", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "***-")  + " : ", " ***-", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "*--")  + " : ", " *--", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "-**-")  + " : ", " -**-", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "-*--")  + " : ", " -*--", " |");
+				System.out.printf("%s %s %5s %s" , "\n| ", decodeLetter(morseCodes, "--**")  + " : ", " --**", " |");
 			}
 			else if(command == 2)
 			{
@@ -174,7 +174,7 @@ public class MorseCodeDecoding {
 		System.out.println("\n\n1. Translation table");
 		System.out.println("2. Decode text file ");
 		System.out.println("3. Decode line");
-		System.out.println("4. End Program");
+		System.out.println("4. End Program\n");
 	}
 	
 	/**
@@ -189,9 +189,21 @@ public class MorseCodeDecoding {
 	 */
 	public static String decodeLetter(BinaryTree<String> codes, String code)
 	{
-		if(code.length() == 0)
+		if(codes == null )
 		{
-			return "" + codes.printRoot();
+			return "Not a correct morse code, please try again!";
+		}
+		else if(code.length() == 0)
+		{
+			if(codes.printRoot().equals("0"))
+			{
+				return "Not a correct morse code, please try again!";
+			}
+			else
+			{
+				return "" + codes.printRoot();
+			}
+			
 		}
 		else if(code.charAt(0) == '*')
 		{
