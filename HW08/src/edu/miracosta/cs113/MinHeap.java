@@ -1,0 +1,127 @@
+package edu.miracosta.cs113;
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class MinHeap<E> extends Heap<E> 
+{
+	private ArrayList<E> theData;
+	
+	Comparator<E> comparator = null;
+	
+	public MinHeap()
+	{
+		 theData = new ArrayList<E>();
+	}
+	
+	public MinHeap(Comparator<E> comp)
+	{
+		theData = new ArrayList<E>();     
+		comparator = comp;
+		 
+	}
+	
+	public boolean insert(E item)
+	{
+		theData.add(item);
+		
+		int child = theData.size() - 1;     
+		int parent = (child - 1) / 2;
+		
+		while(parent >= 0 && compare(theData.get(parent), theData.get(child)) > 0) 
+		{
+			swap(parent, child);       
+			child = parent;        
+			parent = (child - 1) / 2;  
+		}
+		return true;
+	}
+	
+	public E remove()
+	{
+		 boolean repeat = true;
+		 if(isEmpty())
+		 {
+			 return null;  
+		 }     
+		 
+		 E result = theData.get(0);
+		 
+		 if(theData.size() == 1) 
+		 {
+			 theData.remove(0);      
+			 return result;  
+		 }
+		 
+		 theData.set(0, theData.remove(theData.size() - 1));
+		 
+		 int parent = 0;
+		 while(repeat) 
+		 {
+			 int leftChild = 2 * parent + 1; 
+			 if (leftChild >= theData.size())
+			 {
+				 leftChild = 0;
+				repeat = false;
+		     }         
+			 int rightChild = leftChild + 1; 
+			 int minChild = leftChild; 
+		     if(rightChild < theData.size() && compare(theData.get(leftChild), theData.get(rightChild)) > 0 && leftChild != 0) 
+		     {     
+		    	 minChild = rightChild;
+		     }        
+		     if(compare(theData.get(parent), theData.get(minChild)) > 0 && leftChild != 0) 
+		     {
+		    	 swap(parent, minChild);    
+		    	 parent = minChild;         
+		     }
+		     else 
+		     { 
+		    	 repeat = false;         
+		     }     
+		 }
+		 return result;	
+	}
+	
+	public int size()
+	{
+		return theData.size();
+	}
+	
+	public boolean isEmpty()
+	{
+		return theData.size() == 0;
+	}
+	
+	public E peek()
+	{
+		return theData.get(0);
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected int compare(E left, E right)
+	{
+		if(comparator != null) 
+		{ 
+			  return comparator.compare(left, right);
+	    } 
+		else
+		{          
+			  return ((Comparable<E>) left).compareTo(right);     
+		}
+	}
+	
+	protected void swap(int i, int j)
+	{
+		E temp = theData.get(i);
+		theData.set(i, theData.get(j));
+		theData.set(j, temp);
+	}
+	
+	public void printHeap()
+	{
+		for(E item: theData)
+		{
+			System.out.print(item +  " ");
+		}
+	}
+}
