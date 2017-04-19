@@ -1,8 +1,9 @@
 package edu.miracosta.cs113;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.lang.Comparable;
 
-public class MaxHeap<E> extends Heap<E> 
+public class MaxHeap<E extends Comparable<E>> extends Heap<E> 
 {
 	private ArrayList<E> theData;
 	
@@ -100,7 +101,7 @@ public class MaxHeap<E> extends Heap<E>
 		return theData.get(0);
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	protected int compare(E left, E right)
 	{
 		if(comparator != null) 

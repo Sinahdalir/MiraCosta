@@ -20,9 +20,7 @@ public class Driver {
 		items.remove();
 		
 		items.printHeap();
-		String ann = "AA";
-		String ann2 = "An";
-		System.out.println(ann.compareTo(ann2));
+	
 	}
 
 }
