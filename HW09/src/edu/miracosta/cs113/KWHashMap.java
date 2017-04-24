@@ -16,7 +16,8 @@ public interface KWHashMap<K, V>
 	
 	boolean isEmpty();
 	
-	public interface Entry<K, V> 
+	//Just for extra if needed later
+	public static interface Entry<K, V> 
 	{
 		K getKey();
 		

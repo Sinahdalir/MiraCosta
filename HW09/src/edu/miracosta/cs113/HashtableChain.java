@@ -7,21 +7,38 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.NoSuchElementException;
 
+/** 
+ * HashTableChain.java is a database class that stores the Entries in a chaining algorithm
+ *@author Sina Dalir
+ *@version 1.0
+ **/
+
 public class HashtableChain<K, V> extends AbstractMap<K, V> implements KWHashMap<K, V> 
 {
-	private static final int CAPACITY = 101;
+	//
+	private static final int CAPACITY = 101; 
 	private double LOAD_THRESHOLD = 3.0;
 	private LinkedList<Entry<K, V>>[] table;
 	private int numKeys;
 	
 	
-	/** Constructor for HashtableChain
+	/** Default Constructor for HashtableChain
 	 * 
 	 */
 	@SuppressWarnings("unchecked")
 	public HashtableChain()
 	{
 		table = new LinkedList[CAPACITY];
+	}
+	
+	/** Full Constructor for HashtableChain
+	 * 
+	 * @param int capacity
+	 */
+	@SuppressWarnings("unchecked")
+	public HashtableChain(int capacity)
+	{
+		table = new LinkedList[capacity];
 	}
 	
 	/** Method get for class HashtableChain
@@ -177,20 +194,36 @@ public class HashtableChain<K, V> extends AbstractMap<K, V> implements KWHashMap
 		 {
 			 if(items != null)
 			 {
+				 all = all + "\n";
 				 for(Entry<K,V> item : items)
 				 {
-					 all = all + "\n" + item; 
+					 all = all +" -->  " +  item + "  "; 
 				 }
 			 }
 		 }
 		 return all;
 	 }
+	
+	 //This is Programming project #3 , Page #393, it was on the homework prompt
+	 /*
+	  This toString is for a hashtableOpen class
+	  public String toString()
+	  {
+	  		StringBuilder all = new StringBuilder();
+	  		for(Entry<K,V> item : table)
+	  		{
+	  			all.append(item + "\n");
+	  		}
+	  		return all.toString();
+	  }
+	  			
+	  */
 	 
 	 /** Method Returns a String representation of all the datas
 	  * 
 	  * @return String of all the data
 	  */
-	 public String toStringWithLoop()
+	 public String toStringWithIterator()
 	 {
 		 String all = "";
 		Iterator <Map.Entry<K,V>> iter = entrySet().iterator();
@@ -211,7 +244,7 @@ public class HashtableChain<K, V> extends AbstractMap<K, V> implements KWHashMap
 	}
 	
 	
-	private static class Entry<K, V> implements KWHashMap.Entry<K, V>
+	private static class Entry<K, V> implements Map.Entry<K, V>
 	{
 		private K key;
 		private V value;
@@ -289,6 +322,12 @@ public class HashtableChain<K, V> extends AbstractMap<K, V> implements KWHashMap
 		 
 		 Iterator<Entry<K, V>> localIterator = null;       
 		 
+		 /**
+		  * Checks to see if the iterator has a next
+		  * This method check if the linked lists iterator is given then calls it's hasNext()
+		  * 	or checks for the next linked list if not any returns false.
+		  * @return boolean , false if no entry next, true if there is
+		  */
 		 @Override        
 		 public boolean hasNext() 
 		 {            
@@ -314,15 +353,17 @@ public class HashtableChain<K, V> extends AbstractMap<K, V> implements KWHashMap
 			 }            
 			 localIterator = table[index].iterator();
 			 return localIterator.hasNext();        
-		}        
-		@SuppressWarnings("unchecked")
+		}       
+		 
+		 
 		@Override        
 		public Map.Entry<K, V> next() 
 		{
 			if(localIterator.hasNext())
 			{
 				lastItemReturned = localIterator.next();
-				return (Map.Entry<K,V>) lastItemReturned;	
+				return lastItemReturned;
+				
 			}
 			else
 			{
