@@ -22,7 +22,7 @@ public class RadixSort
 		list.add(new ArrayList<T>());
 		list.add(new ArrayList<T>());
 		list.add(new ArrayList<T>());
-		radixSort(table, 10, list, 4);
+		radixSort(table, 10, list);
 	}
 	
 	/** A part of the table using the RadixSort algorithm
@@ -31,7 +31,7 @@ public class RadixSort
 	 * @param radix usually 10
 	 * @param list ArrayList<ArrayList<T> 
 	 */
-	private static <T extends Number & Comparable<T>> void radixSort(T[] table, int radix ,ArrayList<ArrayList<T>> list, int maxDigits )
+	private static <T extends Number & Comparable<T>> void radixSort(T[] table, int radix ,ArrayList<ArrayList<T>> list )
 	{
 
 		if(radix == 0)
@@ -96,13 +96,14 @@ public class RadixSort
 				lists.clear();
 			}
 			
-			if(radix == Math.pow(10, maxDigits)) 
+			if(list.get(0).size() == table.length) 
 			{
-				radixSort(table, 0 , list, 4);
+				radixSort(table, 0 , list);
+				
 			}
 			else
 			{
-				radixSort(table, radix * 10 , list, 4);
+				radixSort(table, radix * 10 , list);
 			}
 				
 				
