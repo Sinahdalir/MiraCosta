@@ -243,7 +243,7 @@ public class HashtableChain<K, V> extends AbstractMap<K, V> implements KWHashMap
 		return new EntrySet();   
 	}
 	
-	
+	//Tried to implement KWHashMap.Entry but wouldn't compile because of the Map interface
 	private static class Entry<K, V> implements Map.Entry<K, V>
 	{
 		private K key;
