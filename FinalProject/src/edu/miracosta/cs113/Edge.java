@@ -8,12 +8,15 @@ public class Edge
 	
 	public Edge(int source, int dest)
 	{
-		
+		this.source = source;
+		this.dest = dest;
 	}
 	
 	public Edge(int source, int dest, double w)
 	{
-		
+		this.source = source;
+		this.dest = dest;
+		this.weight = w;
 	}
 
 	public int getDest() {
@@ -58,8 +61,6 @@ public class Edge
 		if (dest != other.dest)
 			return false;
 		if (source != other.source)
-			return false;
-		if (Double.doubleToLongBits(weight) != Double.doubleToLongBits(other.weight))
 			return false;
 		return true;
 	}

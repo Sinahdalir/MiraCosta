@@ -6,8 +6,11 @@ public class DijkstrasAlgorithm
 	public static void dijkstrasAlgorithm(Graph graph, int start, int[] pred, double[] dist)
 	{
 		int numV = graph.getNumV();
+		
 		HashSet<Integer> vMinusS = new HashSet<Integer>(numV);
 		
+		pred[start] = start;
+		dist[start] = 0;
 		for(int i = 0; i < numV; i++ )
 		{
 			if(i != start)
@@ -19,21 +22,33 @@ public class DijkstrasAlgorithm
 		for(int v : vMinusS)
 		{
 			pred[v] = start;
-			dist[v] = graph.getEdge(start, v).getWeight();
+			if(graph.isEdge(start, v))
+			{
+				dist[v] = graph.getEdge(start, v).getWeight();
+			}
+			else
+			{
+				dist[v] = Double.POSITIVE_INFINITY;
+			}
 		}
 		
-		while(vMinusS.size() != 0)
+		while(!vMinusS.isEmpty())
 		{
+			
 			double minDist = Double.POSITIVE_INFINITY;
 			int u = -1;
 			for(int v : vMinusS)
 			{
-				if(dist[v] < minDist)
+				
+				if(dist[v] <= minDist)
 				{
 					minDist = dist[v];
 					u = v;
 				}
+				//System.out.println(v);
+				
 			}
+			
 			vMinusS.remove(u);
 			for(int v : vMinusS)
 			{
@@ -47,6 +62,8 @@ public class DijkstrasAlgorithm
 					}
 				}
 			}
+			
+			
 		}
 			
 	}
